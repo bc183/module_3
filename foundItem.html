@@ -1,0 +1,11 @@
+<div>   
+    <ol>
+        <li ng-repeat = "items in narrow.found">
+            short name : {{items.short_name}}
+            name : {{items.name}}
+            description : {{items.description}} 
+            <button style="border-radius: 10px;" ng-click= 'narrow.onRemove({index:$index})'>Don't want this one!</button>
+
+        </li>
+    </ol>
+</div>
