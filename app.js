@@ -57,12 +57,15 @@ function NarrowItDownController(MenuSearchService)
 
     promise.then(function(response){
       narrow.found = response;
-      console.flag=true;
+      if(narrow.found.length===0)
+      {
+        narrow.flag=false;
+      }
+      //console.log(narrow.found);
     })
-    .catch(function(response)
+    .catch(function()
     {
-      console.log(response);
-
+      //console.log("hi");
     });
     
   };
@@ -98,7 +101,7 @@ function MenuSearchService($http,ApiBasePath)
         return found;
       })
       .catch(function(){
-        return "Not found";
+        throw new Error();
       })
   };
 
